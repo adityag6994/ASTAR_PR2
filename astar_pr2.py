@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#HW1 for RBE 595/CS 525 Motion Planning
-#code based on the simplemanipulation.py example
+
 import time
 import openravepy
 from sympy import *  
 from copy import deepcopy 
 
-#### YOUR IMPORTS GO HERE ####
-
-#### END OF YOUR IMPORTS ####
 
 if not __openravepy_build_doc__:
     from openravepy import *
@@ -229,7 +225,7 @@ if __name__ == "__main__":
         robot.SetActiveDOFs([],DOFAffine.X|DOFAffine.Y|DOFAffine.RotationAxis,[0,0,1])
         # startconfig =[-3.4, -1.4, 0*pi]
         goalconfig = [2.6,-1.3,-pi/2]
-        #### YOUR CODE HERE ####
+       
         startconfig = robot.GetActiveDOFValues()
         #### Implement the A* algorithm to compute a path for the robot's base starting from the current configuration of the robot and ending at goalconfig. The robot's base DOF have already been set as active. It may be easier to implement this as a function in a separate file and call it here.
         #temp = robot.GetTransform()
@@ -248,7 +244,7 @@ if __name__ == "__main__":
         # for point in path:
         #     getattr(item, 'point3d')
 
-        # #### Draw your path in the openrave here (see /usr/lib/python2.7/dist-packages/openravepy/_openravepy_0_8/examples/tutorial_plotting.py for examples)
+       
         # handles.append(env.plot3(points=array((-1.5,-1,0)),pointsize=25.0,colors=array(((0,0,1,0.2)))))
         # #### Draw the X and Y components of the configurations explored by A*
         print final.point
@@ -338,9 +334,7 @@ if __name__ == "__main__":
         #                            colors=array(((0,0,0))),
         #                            drawstyle=1))
         #   node = Parent[node]
-        # #### Now that you have computed a path, execute it on the robot using the controller. You will need to convert it into an openrave trajectory. You can set any reasonable timing for the configurations in the path. Then, execute the trajectory using robot.GetController().SetPath(mypath);
-
-        #### END OF YOUR CODE ###
+        
     waitrobot(robot)
 
     raw_input("Press enter to exit...")
